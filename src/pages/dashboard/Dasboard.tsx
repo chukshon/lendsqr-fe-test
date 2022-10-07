@@ -1,7 +1,13 @@
-import React from "react"
+import { Outlet } from "react-router-dom"
+import Header from "../../components/header/Header"
 
 const Dashboard = () => {
-  return <div>Dashboard</div>
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  )
 }
 
 export default Dashboard

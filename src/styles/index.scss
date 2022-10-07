@@ -1,4 +1,5 @@
 @import "./variables.scss";
+@import "../pages/login/Login.module.scss";
 
 * {
   box-sizing: border-box;
@@ -7,4 +8,54 @@
 
 body {
   font-family: $Poppins;
+}
+
+:root {
+  --dark-blue: rgba(33, 63, 125, 1);
+  --dark-lemon: rgba(57, 205, 204, 1);
+  --grey: rgba(84, 95, 125, 1);
+  --border-color: rgba(84, 95, 125, 0.15);
+  --dark-yellow: rgba(233, 178, 0, 1);
+  --dark-green: rgba(57, 205, 98, 1);
+  --dark-red: rgba(228, 3, 59, 1);
+}
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+}
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+ion-icon {
+  pointer-events: none;
+}
+
+address {
+  font-style: normal;
 }
