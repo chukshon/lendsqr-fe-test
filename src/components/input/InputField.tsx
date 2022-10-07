@@ -40,7 +40,9 @@ const InputField = ({
             value={value}
             onChange={handleChange}
           />
-          <span onClick={handleTogglePasswordVisibility}>Show</span>
+          <span onClick={handleTogglePasswordVisibility}>
+            {showPassword ? "HIDE" : "SHOW"}
+          </span>
         </div>
       )}
     </>
