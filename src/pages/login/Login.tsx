@@ -13,10 +13,10 @@ const Login = () => {
   const [loginFormData, setLoginFormData] = React.useState(
     loginFormInitialState
   )
-
   const handleSubmit = (e: any) => {
     e.preventDefault()
     console.log(loginFormData)
+    setLoginFormData(loginFormInitialState)
   }
   const handleChange = (e: any) => {
     const name = e.target.name
