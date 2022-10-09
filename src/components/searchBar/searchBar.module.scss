@@ -25,12 +25,15 @@
   }
 }
 
-.search__icon {
+.search__icon__container {
   background-color: var(--dark-lemon);
   width: max-content;
   padding: 12px 20px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   display: flex;
   align-items: center;
+  .search__icon {
+    color: white;
+  }
 }

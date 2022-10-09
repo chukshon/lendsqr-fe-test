@@ -9,8 +9,8 @@ const SearchBar = () => {
         placeholder="Search for anything"
         className={styles.input}
       />
-      <div className={styles.search__icon}>
-        <AiOutlineSearch />
+      <div className={styles.search__icon__container}>
+        <AiOutlineSearch className={styles.search__icon} />
       </div>
     </div>
   )

@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.left__container {
+  @include tablet {
+    display: grid;
+    grid-template-columns: 280px auto;
+  }
+}
+
+.outlet__container {
+  padding: 20px 40px;
+  @include tablet {
+    padding: 20px 60px;
+  }
+}

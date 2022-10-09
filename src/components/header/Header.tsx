@@ -7,20 +7,30 @@ import { AiFillCaretDown } from "react-icons/ai"
 import { IoIosNotificationsOutline } from "react-icons/io"
 import { Link } from "react-router-dom"
 import SearchBar from "../searchBar/SearchBar"
+import Drawer from "@mui/material/Drawer"
+import classnames from "classnames"
 
 const Header = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.header__container}>
-        <HiOutlineMenuAlt2 size="26px" className={styles.navbar__toggle} />
-        <div className={styles.header__logo}>
-          <img src={logo} alt="header__logo" />
-        </div>
-        <div className={styles.search__bar}>
-          <SearchBar />
-        </div>
+      <nav className={styles.header__container}>
+        <HiOutlineMenuAlt2
+          size="26px"
+          className={styles.navbar__toggle}
+          // onClick={handleOpen}
+        />
         <div className={styles.left__container}>
-          <Link to="">Docs</Link>
+          <div className={styles.header__logo}>
+            <img src={logo} alt="header__logo" />
+          </div>
+          <div className={styles.search__bar}>
+            <SearchBar />
+          </div>
+        </div>
+        <div className={styles.right__container}>
+          <Link to="" className={styles.docs_link}>
+            Docs
+          </Link>
           <IoIosNotificationsOutline
             className={styles.notification}
             size="26px"
@@ -33,7 +43,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     </div>
   )
 }

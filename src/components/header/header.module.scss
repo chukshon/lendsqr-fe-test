@@ -3,17 +3,39 @@
 .wrapper {
   width: 100%;
   margin-bottom: 20px;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+  position: relative;
 }
 
 .header__container {
-  padding: 10px 20px;
+  width: 100%;
+  padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+.navbar__toggle {
+  width: 10%;
+  cursor: pointer;
+  @include tablet {
+    display: none;
+  }
+}
 
+.left__container {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+}
 .header__logo {
   display: none;
+  @include tablet {
+    display: block;
+    img {
+      width: 144px;
+      height: 30px;
+    }
+  }
 }
 
 .search__bar {
@@ -21,18 +43,27 @@
   @include laptop {
     display: block;
   }
+  width: 400px;
 }
-.left__container {
+.right__container {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2.5rem;
 }
+
+.docs_link {
+  text-decoration: underline;
+}
+
 .profile__container {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-
   .content {
     display: none;
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
   }
 }

@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+.nav__menu {
+  .overlay {
+    background-color: rgba(33, 37, 41, 0.35);
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1003;
+    visibility: hidden;
+    &.active {
+      visibility: visible;
+      transition: 0.3s;
+    }
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.nav__menu__container {
+  background-color: var(--dark-lemon);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 0px;
+  z-index: 1400;
+  transition: 0.3s;
+  &.active {
+    width: 250px;
+  }
+  @include tablet {
+    top: 88.5px;
+    background: #ffffff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+    width: 280px;
+  }
+}
