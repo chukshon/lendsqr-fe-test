@@ -1,19 +1,9 @@
 import React from "react"
 import styles from "./navMenu.module.scss"
 import classnames from "classnames"
-
+import { useMenuContext } from "../../context/MenuContextProvider"
 const NavMenu = () => {
-  const [open, setOpen] = React.useState(false)
-  const handleOpen = () => {
-    setOpen(true)
-  }
-  const handleClose = (e: any) => {
-    console.log(e.target.className)
-    if (e.target.className === "header_overlay__Icu76 header_active__dknxN") {
-      setOpen(false)
-    }
-    return
-  }
+  const { handleCloseOverlay, open } = useMenuContext()
   return (
     <div className={styles.nav__menu}>
       <div
@@ -25,7 +15,7 @@ const NavMenu = () => {
         className={classnames(styles.overlay, {
           [styles.active]: open,
         })}
-        onClick={(e) => handleClose(e)}
+        onClick={(e) => handleCloseOverlay(e)}
       ></div>
     </div>
   )

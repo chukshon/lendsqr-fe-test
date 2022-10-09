@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import styles from "./header.module.scss"
 import { HiOutlineMenuAlt2 } from "react-icons/hi"
 import logo from "../../Assets/logo.svg"
@@ -7,17 +7,17 @@ import { AiFillCaretDown } from "react-icons/ai"
 import { IoIosNotificationsOutline } from "react-icons/io"
 import { Link } from "react-router-dom"
 import SearchBar from "../searchBar/SearchBar"
-import Drawer from "@mui/material/Drawer"
-import classnames from "classnames"
+import { useMenuContext } from "../../context/MenuContextProvider"
 
 const Header = () => {
+  const { handleOpen } = useMenuContext()
   return (
     <div className={styles.wrapper}>
       <nav className={styles.header__container}>
         <HiOutlineMenuAlt2
           size="26px"
           className={styles.navbar__toggle}
-          // onClick={handleOpen}
+          onClick={handleOpen}
         />
         <div className={styles.left__container}>
           <div className={styles.header__logo}>
@@ -47,5 +47,4 @@ const Header = () => {
     </div>
   )
 }
-
 export default Header
