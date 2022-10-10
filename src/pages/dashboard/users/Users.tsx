@@ -1,5 +1,6 @@
 import React from "react"
 import Usercard from "../../../components/userCard/Usercard"
+import UserTable from "../../../components/userTable/UserTable"
 import styles from "./users.module.scss"
 
 const Users = () => {
@@ -12,6 +13,9 @@ const Users = () => {
           <Usercard />
           <Usercard />
           <Usercard />
+        </div>
+        <div className={styles.usertable__container}>
+          <UserTable />
         </div>
       </div>
     </div>

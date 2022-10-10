@@ -1,0 +1,18 @@
+.header__grid {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.table__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.left__col {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

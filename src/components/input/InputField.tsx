@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./input.module.scss"
 
 type Props = {
-  inputType: "email" | "password" | "text"
+  inputType: "email" | "password" | "text" | "phone" | "date"
   placeholder: string
   name: string
   value: string
@@ -22,16 +22,17 @@ const InputField = ({
   }
   return (
     <>
-      {inputType === "email" ? (
+      {inputType !== "password" && (
         <input
-          type="email"
+          type={inputType}
           name={name}
           className={styles.input_style}
           placeholder={placeholder}
           value={value}
           onChange={handleChange}
         />
-      ) : (
+      )}
+      {inputType === "password" && (
         <div className={styles.password_input}>
           <input
             type={showPassword ? "text" : "password"}

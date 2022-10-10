@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+}
+
+.filter__container {
+  position: absolute;
+  top: 30px;
+  left: -100px;
+  background: #ffffff;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  width: 250px;
+  padding: 20px 10px;
+  &.width__check__700 {
+    left: -250px;
+  }
+  &.width__check__1000 {
+    left: -200px;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.select {
+  width: 100%;
+  background-color: white;
+  outline: none;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px 0px 10px 10px;
+  cursor: pointer;
+  color: var(--grey);
+  option {
+    padding: 0px 20px;
+  }
+}
