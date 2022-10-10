@@ -9,10 +9,11 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
     setOpen(true)
   }
   const handleCloseOverlay = (e: any) => {
+    console.log(e.target.className)
     if (e.target.className === "navMenu_overlay__BsKf8 navMenu_active__teA73") {
       setOpen(false)
+      return
     }
-    return
   }
   const handleClose = () => {
     setOpen(false)
