@@ -167,7 +167,7 @@ const UserTable = () => {
           </select>
           <p>out of 100</p>
         </div>
-        <div className="right__col">
+        <div className={styles.right__col}>
           <Pagination count={100} siblingCount={0} boundaryCount={1} />
         </div>
       </div>

@@ -37,10 +37,10 @@
 .button__group {
   display: flex;
   align-items: center;
+  width: 40%;
   gap: 1rem;
   margin-top: 20px;
   @include laptop {
-    justify-content: space-between;
     gap: 2rem;
     margin-top: 0px;
   }

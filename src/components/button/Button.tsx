@@ -9,17 +9,19 @@ type Props = {
 }
 const Button = ({ buttonText, buttonType, type }: Props) => {
   return (
-    <button
-      type={type ? type : "button"}
-      className={classnames(styles.button, {
-        [styles.default]: buttonType === "default",
-        [styles.red__btn]: buttonType === "red",
-        [styles.green__btn]: buttonType === "green",
-        [styles.grey__btn]: buttonType === "grey",
-      })}
-    >
-      {buttonText}
-    </button>
+    <div className={styles.button__container}>
+      <button
+        type={type ? type : "button"}
+        className={classnames(styles.button, {
+          [styles.default]: buttonType === "default",
+          [styles.red__btn]: buttonType === "red",
+          [styles.green__btn]: buttonType === "green",
+          [styles.grey__btn]: buttonType === "grey",
+        })}
+      >
+        {buttonText}
+      </button>
+    </div>
   )
 }
 
