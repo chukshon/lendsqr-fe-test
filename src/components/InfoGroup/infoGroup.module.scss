@@ -1,0 +1,32 @@
+@import "../../styles/variables.scss";
+.full__info__group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  h4 {
+    font-weight: 500;
+    color: var(--dark-blue);
+  }
+  border-bottom: 1px solid;
+  border-color: var(--border-color);
+  padding-bottom: 2rem;
+}
+
+.full__info__group_content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  @include laptop {
+    row-gap: 2rem;
+    column-gap: 6.5rem;
+  }
+  p {
+    color: var(--grey);
+    font-size: 0.9rem;
+  }
+  h4 {
+    color: var(--grey);
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+}

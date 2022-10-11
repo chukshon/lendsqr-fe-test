@@ -5,6 +5,7 @@ import Button from "../../../components/button/Button"
 import profile__avatar from "../../../Assets/profile_avatar.svg"
 import filled__star from "../../../Assets/filled__star.svg"
 import unfilled__star from "../../../Assets/unfilled__star.svg"
+import InfoGroup from "../../../components/InfoGroup/InfoGroup"
 
 const UserDetails = () => {
   return (
@@ -54,81 +55,9 @@ const UserDetails = () => {
         </ul>
       </div>
       <div className={styles.full__info__container}>
-        <div className={styles.full__info__group}>
-          <h4>Personal Information</h4>
-          <ul className={styles.full__info__group_content}>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.full__info__group}>
-          <h4>Education and Employment</h4>
-          <ul className={styles.full__info__group_content}>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.full__info__group}>
-          <h4>Socials</h4>
-          <ul className={styles.full__info__group_content}>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-            <li>
-              <p>Full Name</p>
-              <h4>Grace Effiom</h4>
-            </li>
-          </ul>
-        </div>
+        <InfoGroup />
+        <InfoGroup />
+        <InfoGroup />
       </div>
     </div>
   )
