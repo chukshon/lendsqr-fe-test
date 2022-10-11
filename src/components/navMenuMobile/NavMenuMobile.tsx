@@ -3,12 +3,18 @@ import styles from "./navMenuMobile.module.scss"
 import classnames from "classnames"
 import { useMenuContext } from "../../context/MenuContextProvider"
 import { menu } from "../../data/navMenuData"
-import { AiOutlineRight } from "react-icons/ai"
+
 import { IoMdClose } from "react-icons/io"
 import MobileNavLink from "../mobileNavLink/MobileNavLink"
+import { useNavigate } from "react-router-dom"
 
 const NavMenuMobile = () => {
+  const navigate = useNavigate()
   const { handleCloseOverlay, open } = useMenuContext()
+  const handleNavigation = (link: string) => {
+    handleCloseOverlay()
+    navigate(link)
+  }
   return (
     <>
       <nav
@@ -27,6 +33,14 @@ const NavMenuMobile = () => {
           })}
         >
           <ul className={styles.nav__menu__container}>
+            <li
+              className={styles.nav__item}
+              onClick={() => {
+                handleNavigation("/")
+              }}
+            >
+              DASHBOARD
+            </li>
             {menu.map((item, index) => {
               return (
                 <MobileNavLink

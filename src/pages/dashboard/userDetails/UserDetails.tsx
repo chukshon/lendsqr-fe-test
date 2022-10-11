@@ -6,11 +6,18 @@ import profile__avatar from "../../../Assets/profile_avatar.svg"
 import filled__star from "../../../Assets/filled__star.svg"
 import unfilled__star from "../../../Assets/unfilled__star.svg"
 import InfoGroup from "../../../components/InfoGroup/InfoGroup"
+import { useNavigate } from "react-router-dom"
 
 const UserDetails = () => {
+  const navigate = useNavigate()
   return (
     <div className={styles.wrapper}>
-      <button className={styles.back__btn}>
+      <button
+        className={styles.back__btn}
+        onClick={() => {
+          navigate("/users")
+        }}
+      >
         <span className={styles.back__btn__icon}>
           <CgArrowLongLeft size={"20px"} />
         </span>

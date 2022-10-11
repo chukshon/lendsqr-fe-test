@@ -5,10 +5,12 @@ type Props = {
   buttonType: "default" | "red" | "green" | "grey"
   buttonText: string
   handleClick?: (se: React.SyntheticEvent) => void
+  type?: "button" | "submit" | "reset"
 }
-const Button = ({ buttonText, buttonType }: Props) => {
+const Button = ({ buttonText, buttonType, type }: Props) => {
   return (
     <button
+      type={type ? type : "button"}
       className={classnames(styles.button, {
         [styles.default]: buttonType === "default",
         [styles.red__btn]: buttonType === "red",

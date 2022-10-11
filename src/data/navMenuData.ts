@@ -2,10 +2,6 @@ import user_icon from "../Assets/menu_icons/users.svg"
 
 export const menu = [
   {
-    title: "",
-    subMenu: [{ title: "Dashboard", link: "", icon: user_icon }],
-  },
-  {
     title: "CUSTOMERS",
     subMenu: [
       { title: "Users", link: "users", icon: user_icon },

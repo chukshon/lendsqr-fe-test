@@ -1,7 +1,7 @@
 .button {
   border-radius: 5px;
   padding: 10px 20px;
-  width: max-content;
+  width: 100%;
 }
 
 .default {
@@ -27,6 +27,6 @@
   color: var(--dark-lemon);
 }
 .grey__btn {
-  border-color: var(--dark-red);
-  color: var(--dark-red);
+  border-color: var(--grey);
+  color: var(--grey);
 }
