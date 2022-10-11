@@ -18,11 +18,12 @@ export const TableContainerStyled = styled(TableContainer)`
 export const TableStyled = styled(Table)`
   width: 100%;
   background: white;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
 `
 
 export const TableHeadStyled = styled(TableHead)`
-  border-radius: 20px;
-  background: white;
   width: max-content;
 `
 
@@ -33,12 +34,13 @@ export const TableHeadRowStyled = styled(TableRow)`
 
 export const TableHeadCellStyled = styled(TableCell)`
   text-align: left;
-  color: black;
+  color: #545f7d;
   font-size: 15px;
   width: max-content;
   p {
     width: max-content;
   }
+  border: none;
 `
 
 export const TableBodyStyled = styled(TableBody)`
@@ -47,7 +49,8 @@ export const TableBodyStyled = styled(TableBody)`
 
 export const TableBodyCellStyled = styled(TableCell)`
   text-align: left;
-  color: black;
+  color: #545f7d;
+  border-bottom: 1px solid rgba(33, 63, 125, 0.1);
   width: max-content;
   p {
     width: max-content;
@@ -58,8 +61,6 @@ export const TableBodyCellStyled = styled(TableCell)`
   background: white;
 `
 export const TableBodyRowStyled = styled(TableRow)`
-  border-style: solid;
-  border: none;
   background: white 100%;
   width: max-content;
   color: grey;

@@ -20,18 +20,20 @@ const NavMenu = () => {
               return (
                 <>
                   <ul key={index} className={styles.nav__item}>
-                    <li className={styles.nav__link}>{item.title}</li>
+                    <li className={styles.nav__item__link}>{item.title}</li>
                     <span>
                       <AiOutlineRight />
                     </span>
                   </ul>
-                  {item.subMenu.map((subItem, index) => {
-                    return (
-                      <li key={index} className={styles.subnav__link}>
-                        <p>{subItem.title}</p>
-                      </li>
-                    )
-                  })}
+                  <ul className={styles.subnav__item}>
+                    {item.subMenu.map((subItem, index) => {
+                      return (
+                        <li key={index} className={styles.subnav__link}>
+                          <p>{subItem.title}</p>
+                        </li>
+                      )
+                    })}
+                  </ul>
                 </>
               )
             })}

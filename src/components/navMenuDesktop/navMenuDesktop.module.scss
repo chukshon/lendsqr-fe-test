@@ -1,0 +1,26 @@
+@import "../../styles/variables.scss";
+
+.nav__menu {
+  z-index: 1000;
+}
+.nav__menu__wrapper {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 230px;
+  overflow-y: auto;
+  z-index: 900;
+  height: 100%;
+  top: 88px;
+  background: #ffffff;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.nav__menu__container {
+  z-index: 900;
+  transition: 0.3s;
+  padding: 20px 0px 50px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}

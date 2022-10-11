@@ -3,13 +3,15 @@
 .wrapper {
   width: 100%;
   box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
-  position: relative;
+  position: fixed;
   background-color: white;
+  z-index: 900;
+  top: 0;
 }
 
 .header__container {
   width: 100%;
-  padding: 20px 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +19,7 @@
 .navbar__toggle {
   width: 10%;
   cursor: pointer;
-  @include tablet {
+  @include laptop {
     display: none;
   }
 }
@@ -29,7 +31,7 @@
 }
 .header__logo {
   display: none;
-  @include tablet {
+  @include laptop {
     display: block;
     img {
       width: 144px;
@@ -48,7 +50,7 @@
 .right__container {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .docs_link {
@@ -61,7 +63,7 @@
   gap: 0.65rem;
   .content {
     display: none;
-    @include tablet {
+    @include laptop {
       display: flex;
       align-items: center;
     }

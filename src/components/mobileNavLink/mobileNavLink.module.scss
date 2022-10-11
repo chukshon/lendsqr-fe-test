@@ -1,0 +1,28 @@
+.nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  p {
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+}
+
+.submenu__list {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  height: 0;
+  display: none;
+  &.submenu__list__active {
+    min-height: 0px;
+    height: auto;
+    opacity: 1;
+    display: flex;
+    transition: height display 5s;
+  }
+}

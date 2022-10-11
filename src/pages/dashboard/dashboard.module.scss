@@ -1,19 +1,21 @@
 @import "../../styles/variables.scss";
 .wrapper {
-  background-color: #e5e5e5;
+  background-color: #fbfbfb;
 }
 .left__container {
   position: relative;
-  @include tablet {
+  @include laptop {
     display: grid;
-    grid-template-columns: 280px auto;
+    grid-template-columns: 230px auto;
   }
 }
 
 .outlet__container {
   padding: 0px 20px;
   width: 100%;
-  @include tablet {
+  margin-top: 100px;
+  @include laptop {
     padding: 20px 30px;
+    margin-top: 90px;
   }
 }
