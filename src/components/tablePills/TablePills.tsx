@@ -18,16 +18,18 @@ const TablePills = () => {
   }
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
-      <div className={styles.wrapper}>
-        <div className={styles.content}>
-          <div>
-            <span></span>
-            <p>Inactive</p>
+      <div className={styles.container}>
+        <div className={styles.wrapper}>
+          <div className={styles.content}>
+            <div>
+              <span></span>
+              <p>Inactive</p>
+            </div>
+            <BsThreeDotsVertical
+              className={styles.action__icon}
+              onClick={handleFilterOpen}
+            />
           </div>
-          <BsThreeDotsVertical
-            className={styles.action__icon}
-            onClick={handleFilterOpen}
-          />
         </div>
         {filterOpen && (
           <ul className={styles.actions__container}>

@@ -9,6 +9,7 @@ import { styled } from "@mui/material"
 export const TableContainerStyled = styled(TableContainer)`
   max-height: 500px;
   height: 100%;
+
   overflow-y: auto;
   &::-webkit-scrollbar {
     width: 0;

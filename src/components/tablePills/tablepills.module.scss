@@ -1,3 +1,6 @@
+.container {
+  position: relative;
+}
 .wrapper {
   position: relative;
 }
@@ -6,17 +9,19 @@
   align-items: center;
   justify-content: space-between;
   gap: 3rem;
+  z-index: -1;
   div {
     position: relative;
     padding: 8px 10px;
+    z-index: 10;
     span {
-      background: #545f7d;
+      background: var(--dark-red);
       position: absolute;
       opacity: 0.06;
       border-radius: 100px;
       top: 0;
       left: 0;
-      z-index: 20;
+      z-index: 10;
       height: 100%;
       width: 100%;
     }
@@ -27,7 +32,8 @@
       line-height: 16px;
       text-align: center;
       opacity: 1;
-      color: #545f7d;
+      color: var(--dark-red);
+      z-index: -1;
     }
   }
 }
@@ -35,17 +41,17 @@
 .actions__container {
   position: absolute;
   top: 0px;
-  right: 0;
+  right: 0px;
   background: #ffffff;
   border: 1px solid rgba(84, 95, 125, 0.04);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
   display: flex;
+  opacity: 1;
   flex-direction: column;
   gap: 1rem;
   z-index: 100;
-  padding: 10px 20px;
-
+  padding: 20px 20px;
   li {
     display: flex;
     align-items: center;
@@ -56,4 +62,5 @@
 
 .action__icon {
   cursor: pointer;
+  z-index: 10;
 }
