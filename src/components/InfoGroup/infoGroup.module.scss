@@ -16,10 +16,14 @@
 .full__info__group_content {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   gap: 2rem;
   @include laptop {
     row-gap: 2rem;
-    column-gap: 6.5rem;
+    column-gap: 5rem;
+  }
+  li {
+    width: 200px;
   }
   p {
     color: var(--grey);

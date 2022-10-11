@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import TablePills from "../../../components/tablePills/TablePills"
 import Usercard from "../../../components/userCard/Usercard"
 import UserTable from "../../../components/userTable/UserTable"
 import { getAllUsersService } from "../../../services/getAllUsers"
@@ -12,11 +13,23 @@ const Users = () => {
   }
   const [states, setStates] = React.useState(initialStates)
   const [allUsers, setAllUsers] = React.useState([])
+
   const getAllUsers = async () => {
     try {
       setStates({ ...states, loading: true })
       const response = await getAllUsersService()
-      setAllUsers(response)
+      const tempUsers = response.map((user: any, index: any) => {
+        return {
+          id: user.id,
+          Organization: user.orgName,
+          Username: user.userName,
+          Email: user.email,
+          "Phone Number": user.phoneNumber,
+          "Date Joined": user.createdAt,
+          Status: <TablePills id={user.id} />,
+        }
+      })
+      setAllUsers(tempUsers)
       setStates({ ...states, loading: false, success: true })
     } catch (err) {
       setStates({ ...states, loading: false, error: true })
@@ -37,7 +50,7 @@ const Users = () => {
           <Usercard />
         </div>
         <div className={styles.usertable__container}>
-          <UserTable />
+          <UserTable userData={allUsers} />
         </div>
       </div>
     </div>

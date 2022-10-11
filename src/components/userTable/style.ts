@@ -8,20 +8,23 @@ import { styled } from "@mui/material"
 
 export const TableContainerStyled = styled(TableContainer)`
   max-height: 500px;
+  max-width: 100%;
   height: 100%;
-
+  width: 100%;
   overflow-y: auto;
-  &::-webkit-scrollbar {
+
+  /* &::-webkit-scrollbar {
     width: 0;
-  }
+  } */
 `
 
 export const TableStyled = styled(Table)`
-  width: 100%;
+  max-width: 100%;
   background: white;
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 10px;
+  overflow-x: auto;
 `
 
 export const TableHeadStyled = styled(TableHead)`

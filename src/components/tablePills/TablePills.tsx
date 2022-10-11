@@ -7,7 +7,11 @@ import { BiUserCheck } from "react-icons/bi"
 import { BsEye } from "react-icons/bs"
 import { useNavigate } from "react-router-dom"
 
-const TablePills = () => {
+type Props = {
+  id: number
+}
+
+const TablePills = ({ id }: Props) => {
   const navigate = useNavigate()
   const [filterOpen, setFilterOpen] = React.useState<boolean>(false)
   const handleClickAway = () => {
@@ -35,7 +39,7 @@ const TablePills = () => {
           <ul className={styles.actions__container}>
             <li
               onClick={() => {
-                navigate("/user-details")
+                navigate(`/user-details/${id}`)
               }}
             >
               <BsEye />

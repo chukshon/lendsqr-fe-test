@@ -6,9 +6,50 @@ import profile__avatar from "../../../Assets/profile_avatar.svg"
 import filled__star from "../../../Assets/filled__star.svg"
 import unfilled__star from "../../../Assets/unfilled__star.svg"
 import InfoGroup from "../../../components/InfoGroup/InfoGroup"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 const UserDetails = () => {
+  const { id } = useParams()
+  const users = JSON.parse(localStorage.getItem("users")!)
+  const singleUser = users.find((user: any) => {
+    return user.id === id
+  })
+  const personalInfo = {
+    "Full Name":
+      singleUser.profile.firstName + " " + singleUser.profile.lastName,
+    "Phone Number": singleUser.phoneNumber,
+    "Email Address": singleUser.email,
+    Bvn: singleUser.profile.bvn,
+    Gender: singleUser.profile.gender,
+    "Marital Status": "single",
+    Children: "None",
+    "Type of Residence": "Parent’s Apartment",
+  }
+
+  const education_employment = {
+    "Level of Education": singleUser.education.level,
+    "Employment Status": singleUser.education.employmentStatus,
+    "Sector of Employment": singleUser.education.sector,
+    "Duration of Employment": singleUser.education.duration,
+    "Office Email": singleUser.education.officeEmail,
+    "Monthly Income": "₦200,000.00- ₦400,000.00",
+    "Loan Repayment": "40,000",
+  }
+
+  const socials = {
+    Twitter: singleUser.socials.twitter,
+    Facebook: singleUser.socials.facebook,
+    Instagram: singleUser.socials.instagram,
+  }
+
+  const guarantor = {
+    "Full Name":
+      singleUser.profile.firstName + " " + singleUser.profile.lastName,
+    "Phone Number": singleUser.phoneNumber,
+    "Email Address": singleUser.email,
+    Relationship: "Sister",
+  }
+
   const navigate = useNavigate()
   return (
     <div className={styles.wrapper}>
@@ -62,9 +103,13 @@ const UserDetails = () => {
         </ul>
       </div>
       <div className={styles.full__info__container}>
-        <InfoGroup />
-        <InfoGroup />
-        <InfoGroup />
+        <InfoGroup data={personalInfo} title="Personal Information" />
+        <InfoGroup
+          data={education_employment}
+          title="Education and Employment"
+        />
+        <InfoGroup data={socials} title="Socials" />
+        <InfoGroup data={guarantor} title="Guarantor" />
       </div>
     </div>
   )

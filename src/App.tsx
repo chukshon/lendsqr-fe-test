@@ -12,7 +12,7 @@ function App() {
         <Route path="" element={<Dashboard />}>
           <Route index element={<h1>Dashboard</h1>} />
           <Route path="/users" element={<Users />} />
-          <Route path="user-details" element={<UserDetails />} />
+          <Route path="user-details/:id" element={<UserDetails />} />
         </Route>
         <Route path="*" element={<h2>Does not exist</h2>} />
       </Routes>

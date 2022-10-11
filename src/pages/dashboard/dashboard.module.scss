@@ -2,6 +2,7 @@
 
 .wrapper {
   background-color: #fbfbfb;
+  width: 100%;
 }
 .left__container {
   position: relative;
@@ -16,7 +17,8 @@
   width: 100%;
   margin-top: 120px;
   @include tablet {
-    padding: 20px 40px;
+    padding: 20px 30px;
     margin-top: 90px;
+    width: 100%;
   }
 }

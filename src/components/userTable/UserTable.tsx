@@ -14,73 +14,12 @@ import styles from "./usertable.module.scss"
 // import Pagination from "@mui/material/Pagination"
 import TablePills from "../tablePills/TablePills"
 import Pagination from "../pagination/Pagination"
+import { Paper } from "@mui/material"
 
-const UserTable = () => {
-  const data = [
-    {
-      id: 1,
-      Organization: "Lendsqr",
-      Username: "Adedeji",
-      Email: "adedeji@lendsqr.com",
-      "Phone Number": "08078903721",
-      "Date Joined": "May 15, 2020 10:00 AM",
-      Status: "Active",
-    },
-    {
-      id: 2,
-      Organization: "Lendsqr",
-      Username: "Adedeji",
-      Email: "adedeji@lendsqr.com",
-      "Phone Number": "08078903721",
-      "Date Joined": "May 15, 2020 10:00 AM",
-      Status: "Active",
-    },
-    {
-      id: 3,
-      Organization: "Lendsqr",
-      Username: "Adedeji",
-      Email: "adedeji@lendsqr.com",
-      "Phone Number": "08078903721",
-      "Date Joined": "May 15, 2020 10:00 AM",
-      Status: "Active",
-    },
-    {
-      id: 4,
-      Organization: "Lendsqr",
-      Username: "Adedeji",
-      Email: "adedeji@lendsqr.com",
-      "Phone Number": "08078903721",
-      "Date Joined": "May 15, 2020 10:00 AM",
-      Status: "Active",
-    },
-    {
-      id: 5,
-      Organization: "Lendsqr",
-      Username: "Adedeji",
-      Email: "adedeji@lendsqr.com",
-      "Phone Number": "08078903721",
-      "Date Joined": "May 15, 2020 10:00 AM",
-      Status: "Active",
-    },
-    {
-      id: 6,
-      Organization: "Lendsqr",
-      Username: "Adedeji",
-      Email: "adedeji@lendsqr.com",
-      "Phone Number": "08078903721",
-      "Date Joined": "May 15, 2020 10:00 AM",
-      Status: "Active",
-    },
-    {
-      id: 7,
-      Organization: "Lendsqr",
-      Username: "Adedeji",
-      Email: "adedeji@lendsqr.com",
-      "Phone Number": "08078903721",
-      "Date Joined": "May 15, 2020 10:00 AM",
-      Status: "Active",
-    },
-  ]
+type Props = {
+  userData?: any
+}
+const UserTable = ({ userData }: Props) => {
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(20)
   const handleChangeRowsPerPage = (e: any) => {
@@ -99,17 +38,6 @@ const UserTable = () => {
     "Status",
   ]
 
-  const finalData = data.map((item, index) => {
-    return {
-      id: item.id,
-      Organization: item.Organization,
-      Username: item.Username,
-      Email: item.Email,
-      "Phone Number": item["Phone Number"],
-      "Date Joined": item["Date Joined"],
-      Status: <TablePills />,
-    }
-  })
   return (
     <>
       <TableContainerStyled>
@@ -136,9 +64,9 @@ const UserTable = () => {
             </TableHeadRowStyled>
           </TableHeadStyled>
           <TableBody>
-            {finalData
+            {userData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row: any, index) => (
+              .map((row: any, index: any) => (
                 <TableBodyRowStyled key={row.id}>
                   {headers.map((item, index) => {
                     return (
@@ -168,7 +96,7 @@ const UserTable = () => {
         <div className={styles.right__col}>
           <Pagination
             page={page}
-            pageCount={Math.ceil(data.length / rowsPerPage)}
+            pageCount={Math.ceil(userData.length / rowsPerPage)}
             handlePageClick={handlePageClick}
           />
         </div>

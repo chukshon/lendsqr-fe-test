@@ -1,12 +1,26 @@
 import React from "react"
 import styles from "./infoGroup.module.scss"
 
-const InfoGroup = () => {
+type Props = {
+  data?: any
+  title: string
+}
+
+const InfoGroup = ({ data, title }: Props) => {
+  const objKeys = Object.keys(data)
   return (
     <div className={styles.full__info__group}>
-      <h4>Personal Information</h4>
+      <h4>{title}</h4>
       <ul className={styles.full__info__group_content}>
-        <li>
+        {objKeys?.map((item: any, index: any) => {
+          return (
+            <li>
+              <p>{item.toUpperCase()}</p>
+              <h4>{data[item]}</h4>
+            </li>
+          )
+        })}
+        {/* <li>
           <p>Full Name</p>
           <h4>Grace Effiom</h4>
         </li>
@@ -29,7 +43,7 @@ const InfoGroup = () => {
         <li>
           <p>Full Name</p>
           <h4>Grace Effiom</h4>
-        </li>
+        </li> */}
       </ul>
     </div>
   )
