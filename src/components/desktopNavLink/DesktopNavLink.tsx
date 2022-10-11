@@ -2,7 +2,6 @@ import React from "react"
 import styles from "./desktopNavLink.module.scss"
 import { MenuProps } from "../../types/index"
 import { NavLink } from "react-router-dom"
-import classnames from "classnames"
 
 const DesktopNavLink = ({ title, subMenu }: MenuProps) => {
   return (

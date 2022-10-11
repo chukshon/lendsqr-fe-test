@@ -1,17 +1,12 @@
 import React from "react"
 import styles from "./navMenuDesktop.module.scss"
-import classnames from "classnames"
-import { useMenuContext } from "../../context/MenuContextProvider"
 import { menu } from "../../data/navMenuData"
-import { AiOutlineRight } from "react-icons/ai"
-import { IoMdClose } from "react-icons/io"
 import DesktopNavLink from "../desktopNavLink/DesktopNavLink"
 import { NavLink } from "react-router-dom"
 import user_icon from "../../Assets/menu_icons/users.svg"
 import { FaAngleDown } from "react-icons/fa"
 
 const NavMenuDesktop = () => {
-  const { handleCloseOverlay, open } = useMenuContext()
   return (
     <>
       <div className={styles.nav__menu}>

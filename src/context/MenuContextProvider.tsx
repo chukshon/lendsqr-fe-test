@@ -1,5 +1,4 @@
 import * as React from "react"
-import { MenuT } from "../types"
 
 export const MenuContext = React.createContext<any>(null)
 

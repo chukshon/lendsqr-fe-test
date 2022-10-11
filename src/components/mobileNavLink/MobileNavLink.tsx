@@ -8,7 +8,7 @@ import { useMenuContext } from "../../context/MenuContextProvider"
 import { useNavigate } from "react-router-dom"
 
 const MobileNavLink = ({ title, subMenu }: MenuProps) => {
-  const { handleCloseOverlay, open } = useMenuContext()
+  const { handleCloseOverlay } = useMenuContext()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false)
   const handleClickAway = () => {

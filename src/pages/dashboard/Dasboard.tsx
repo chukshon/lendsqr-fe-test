@@ -10,10 +10,9 @@ const Dashboard = () => {
   const handleResize = () => {
     setWidth(window.innerWidth)
   }
-
   useEffect(() => {
     window.addEventListener("resize", handleResize)
-  }, [window.innerWidth])
+  }, [])
   return (
     <div className={styles.wrapper}>
       <Header />

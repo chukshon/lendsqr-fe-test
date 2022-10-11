@@ -4,7 +4,6 @@ import styles from "./tableFilter.module.scss"
 import { IoFilterSharp } from "react-icons/io5"
 import InputField from "../input/InputField"
 import classnames from "classnames"
-import { style } from "@mui/system"
 import Button from "../button/Button"
 
 const organizations = ["grape", "apple", "orange"]

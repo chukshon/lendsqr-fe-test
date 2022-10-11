@@ -11,22 +11,11 @@ import {
 import TableBody from "@mui/material/TableBody"
 import TableFilter from "../../components/tableFilter/TableFilter"
 import styles from "./usertable.module.scss"
-import Pagination from "@mui/material/Pagination"
+// import Pagination from "@mui/material/Pagination"
 import TablePills from "../tablePills/TablePills"
+import Pagination from "../pagination/Pagination"
 
-type Order = "asc" | "desc"
 const UserTable = () => {
-  const [order, setOrder] = React.useState<Order>("asc")
-  const [orderBy, setOrderBy] = React.useState<any>("calories")
-  const headers = [
-    "Organization",
-    "Username",
-    "Email",
-    "Phone Number",
-    "Date Joined",
-    "Status",
-  ]
-
   const data = [
     {
       id: 1,
@@ -92,6 +81,23 @@ const UserTable = () => {
       Status: "Active",
     },
   ]
+  const [page, setPage] = React.useState(0)
+  const [rowsPerPage, setRowsPerPage] = React.useState(20)
+  const handleChangeRowsPerPage = (e: any) => {
+    setRowsPerPage(+e.target.value)
+    setPage(0)
+  }
+  const handlePageClick = (e: any) => {
+    setPage(e.selected)
+  }
+  const headers = [
+    "Organization",
+    "Username",
+    "Email",
+    "Phone Number",
+    "Date Joined",
+    "Status",
+  ]
 
   const finalData = data.map((item, index) => {
     return {
@@ -104,16 +110,6 @@ const UserTable = () => {
       Status: <TablePills />,
     }
   })
-  function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
-    if (b[orderBy] < a[orderBy]) {
-      return -1
-    }
-    if (b[orderBy] > a[orderBy]) {
-      return 1
-    }
-    return 0
-  }
-
   return (
     <>
       <TableContainerStyled>
@@ -140,35 +136,41 @@ const UserTable = () => {
             </TableHeadRowStyled>
           </TableHeadStyled>
           <TableBody>
-            {finalData.map((row: any, index) => (
-              <TableBodyRowStyled key={row.id}>
-                {headers.map((item, index) => {
-                  return (
-                    <TableBodyCellStyled
-                      key={index}
-                      className="table_body_cell"
-                    >
-                      <div>{row[item]}</div>
-                    </TableBodyCellStyled>
-                  )
-                })}
-              </TableBodyRowStyled>
-            ))}
+            {finalData
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row: any, index) => (
+                <TableBodyRowStyled key={row.id}>
+                  {headers.map((item, index) => {
+                    return (
+                      <TableBodyCellStyled
+                        key={index}
+                        className="table_body_cell"
+                      >
+                        <div>{row[item]}</div>
+                      </TableBodyCellStyled>
+                    )
+                  })}
+                </TableBodyRowStyled>
+              ))}
           </TableBody>
         </TableStyled>
       </TableContainerStyled>
       <div className={styles.table__footer}>
         <div className={styles.left__col}>
           <p>Showing</p>
-          <select className={styles.select}>
-            <option value="grapefruit">20</option>
-            <option value="lime">50</option>
-            <option value="coconut">100</option>
+          <select className={styles.select} onChange={handleChangeRowsPerPage}>
+            <option value={20}>20</option>
+            <option value={50}>50</option>
+            <option value={100}>{100}</option>
           </select>
-          <p>out of 100</p>
+          <p>out of {rowsPerPage}</p>
         </div>
         <div className={styles.right__col}>
-          <Pagination count={100} siblingCount={0} boundaryCount={1} />
+          <Pagination
+            page={page}
+            pageCount={Math.ceil(data.length / rowsPerPage)}
+            handlePageClick={handlePageClick}
+          />
         </div>
       </div>
     </>
