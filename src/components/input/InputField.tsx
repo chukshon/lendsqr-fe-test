@@ -2,11 +2,13 @@ import React from "react"
 import styles from "./input.module.scss"
 
 type Props = {
-  inputType: "email" | "password" | "text"
-  placeholder: string
-  name: string
-  value: string
+  inputType: "email" | "password" | "text" | "phone" | "date" | "select"
+  placeholder?: string
+  name?: string
+  value?: string
   handleChange?: (se: React.SyntheticEvent) => void
+  label?: string
+  options?: string[]
 }
 
 const InputField = ({
@@ -15,6 +17,8 @@ const InputField = ({
   name,
   value,
   handleChange,
+  label,
+  options,
 }: Props) => {
   const [showPassword, setShowPassword] = React.useState(false)
   const handleTogglePasswordVisibility = () => {
@@ -22,16 +26,20 @@ const InputField = ({
   }
   return (
     <>
-      {inputType === "email" ? (
-        <input
-          type="email"
-          name={name}
-          className={styles.input_style}
-          placeholder={placeholder}
-          value={value}
-          onChange={handleChange}
-        />
-      ) : (
+      {inputType !== "password" && inputType !== "select" && (
+        <div className={styles.input__container}>
+          {label && <label>{label}</label>}
+          <input
+            type={inputType}
+            name={name}
+            className={styles.input_style}
+            placeholder={placeholder}
+            value={value}
+            onChange={handleChange}
+          />
+        </div>
+      )}
+      {inputType === "password" && (
         <div className={styles.password_input}>
           <input
             type={showPassword ? "text" : "password"}
@@ -44,6 +52,28 @@ const InputField = ({
             {showPassword ? "HIDE" : "SHOW"}
           </span>
         </div>
+      )}
+      {inputType === "select" && (
+        <>
+          {label && <label>{label}</label>}
+          <select
+            className={styles.select}
+            value={value}
+            onChange={handleChange}
+            name={name}
+          >
+            <option value={value} selected disabled hidden>
+              Select
+            </option>
+            {options?.map((option, index) => {
+              return (
+                <option value={option} key={index}>
+                  {option}
+                </option>
+              )
+            })}
+          </select>
+        </>
       )}
     </>
   )

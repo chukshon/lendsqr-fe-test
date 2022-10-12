@@ -1,0 +1,32 @@
+.nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  p {
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+  width: 100%;
+}
+
+.submenu__list {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  display: none;
+  overflow: hidden;
+  height: 0px;
+  will-change: height;
+  transition: height 278ms ease-in-out 0s;
+  &.submenu__list__active {
+    min-height: 0px;
+    height: auto;
+    opacity: 1;
+    display: flex;
+    transition: height display 5s;
+  }
+}

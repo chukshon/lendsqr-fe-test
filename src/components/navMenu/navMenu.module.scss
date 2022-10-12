@@ -1,40 +1,79 @@
 @import "../../styles/variables.scss";
+
 .nav__menu {
-  .overlay {
-    background-color: rgba(33, 37, 41, 0.35);
-    height: 100vh;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: 1003;
-    visibility: hidden;
-    &.active {
-      visibility: visible;
-      transition: 0.3s;
-    }
-    @include tablet {
-      display: none;
-    }
+  z-index: 1000;
+}
+.nav__menu__overlay {
+  background-color: rgba(33, 37, 41, 0.35);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+  visibility: hidden;
+  &.overlay_active {
+    visibility: visible;
+    z-index: -1;
+  }
+  @include tablet {
+    display: none;
   }
 }
 
-.nav__menu__container {
+.nav__menu__wrapper {
   background-color: var(--dark-lemon);
   height: 100vh;
   left: 0;
   position: fixed;
   top: 0;
-  width: 0px;
-  z-index: 1400;
-  transition: 0.3s;
+  width: 280px;
+  overflow-y: auto;
+  pointer-events: none;
+  z-index: 900;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   &.active {
-    width: 250px;
+    transform: none;
+    transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    pointer-events: none;
+    z-index: 900;
+  }
+  &.inactive {
+    transform: translateX(-300px);
+    pointer-events: none;
+    z-index: 900;
   }
   @include tablet {
-    top: 88.5px;
+    height: 100%;
+    top: 88px;
     background: #ffffff;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
     width: 280px;
+
+    &.inactive {
+      transform: unset;
+      pointer-events: unset;
+    }
   }
+}
+
+.nav__menu__container {
+  z-index: 900;
+  transition: 0.3s;
+  padding: 70px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__item__link {
+  font-weight: 600;
+}
+.subnav__item {
+  display: none;
 }
