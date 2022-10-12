@@ -23,9 +23,25 @@ const InputField = ({
   return (
     <>
       {inputType === "email" ? (
-        <input type="email" className={styles.input} />
+        <input
+          type="email"
+          name={name}
+          className={styles.input_style}
+          placeholder={placeholder}
+          value={value}
+          onChange={handleChange}
+        />
       ) : (
-        <input type="password" />
+        <div className={styles.password_input}>
+          <input
+            type={showPassword ? "text" : "password"}
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={handleChange}
+          />
+          <span onClick={handleTogglePasswordVisibility}>Show</span>
+        </div>
       )}
     </>
   )

@@ -12,10 +12,20 @@ const Login = () => {
   const [loginFormData, setLoginFormData] = React.useState(
     loginFormInitialState
   )
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault()
+    console.log(loginFormData)
+  }
   const handleChange = (e: any) => {
-    const name = e.target.value
+    const name = e.target.name
     const value = e.target.value
-    setLoginFormData({ ...loginFormData, [name]: value })
+    setLoginFormData((prevalue) => {
+      return {
+        ...prevalue,
+        [name]: value,
+      }
+    })
   }
   return (
     <div className={styles.wrapper}>
@@ -30,20 +40,20 @@ const Login = () => {
           <h3>Welcome!</h3>
           <p>Enter details to login</p>
         </div>
-        <form className={styles.login__form}>
+        <form className={styles.login__form} onSubmit={handleSubmit}>
           <InputField
             inputType="email"
-            name="password"
-            value={loginFormInitialState.password}
+            name="email"
+            value={loginFormData.email}
             handleChange={handleChange}
-            placeholder="Password"
+            placeholder="Email"
           />
           <InputField
             inputType="password"
-            name="email"
-            value={loginFormInitialState.email}
+            name="password"
+            value={loginFormData.password}
             handleChange={handleChange}
-            placeholder="Email"
+            placeholder="Password"
           />
           <p>Forgot Password</p>
           <button>Log in</button>

@@ -1,4 +1,39 @@
-input {
-  border: 1px solid;
-  border-color: var(--grey);
+.input_style,
+.password_input {
+  border: 2px solid;
+  border-color: var(--border-color);
+  outline: none;
+  border-radius: 5px;
+  height: 40px;
+  padding: 0px 15px;
+  font-size: 14px;
+  &::placeholder {
+    color: var(--grey);
+    font-weight: 300;
+  }
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+.password_input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  input {
+    border: none;
+    &::placeholder {
+      color: var(--grey);
+      font-weight: 300;
+    }
+    &:focus {
+      outline: none;
+      border: none;
+    }
+  }
+  span {
+    color: var(--dark-lemon);
+    cursor: pointer;
+  }
 }
