@@ -9,12 +9,12 @@ import {
   TableBodyCellStyled,
 } from "./style"
 import TableBody from "@mui/material/TableBody"
-import TableFilter from "../../components/tableFilter/TableFilter"
+
 import styles from "./usertable.module.scss"
 // import Pagination from "@mui/material/Pagination"
-import TablePills from "../tablePills/TablePills"
 import Pagination from "../pagination/Pagination"
 import { Paper } from "@mui/material"
+import TableFilter from "../tableFilter/TableFilter"
 
 type Props = {
   userData?: any
