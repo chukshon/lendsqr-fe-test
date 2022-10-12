@@ -12,13 +12,30 @@ const Users = () => {
     success: false,
   }
   const [states, setStates] = React.useState(initialStates)
-  const [allUsers, setAllUsers] = React.useState([])
+  const localStorageUsers = JSON.parse(localStorage.getItem("users")!)
+  const [allUsers, setAllUsers] = React.useState(localStorageUsers)
 
   const getAllUsers = async () => {
     try {
-      setStates({ ...states, loading: true })
-      const response = await getAllUsersService()
-      const tempUsers = response.map((user: any, index: any) => {
+      if (!localStorageUsers) {
+        setStates({ ...states, loading: true })
+        const response = await getAllUsersService()
+        localStorage.setItem("users", JSON.stringify(response))
+        const tempUsers = response.map((user: any) => {
+          return {
+            id: user.id,
+            Organization: user.orgName,
+            Username: user.userName,
+            Email: user.email,
+            "Phone Number": user.phoneNumber,
+            "Date Joined": user.createdAt,
+            Status: <TablePills id={user.id} />,
+          }
+        })
+        setAllUsers(tempUsers)
+        setStates({ ...states, loading: false, success: true })
+      }
+      const tempUsers = localStorageUsers.map((user: any) => {
         return {
           id: user.id,
           Organization: user.orgName,
@@ -30,7 +47,6 @@ const Users = () => {
         }
       })
       setAllUsers(tempUsers)
-      setStates({ ...states, loading: false, success: true })
     } catch (err) {
       setStates({ ...states, loading: false, error: true })
     }
@@ -49,9 +65,12 @@ const Users = () => {
           <Usercard />
           <Usercard />
         </div>
-        <div className={styles.usertable__container}>
-          <UserTable userData={allUsers} />
-        </div>
+        {states.loading && <h1>Loading..</h1>}
+        {!states.loading && allUsers && (
+          <div className={styles.usertable__container}>
+            <UserTable userData={allUsers} />
+          </div>
+        )}
       </div>
     </div>
   )
