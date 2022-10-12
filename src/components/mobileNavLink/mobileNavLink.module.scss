@@ -17,8 +17,11 @@
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
-  height: 0;
   display: none;
+  overflow: hidden;
+  height: 0px;
+  will-change: height;
+  transition: height 278ms ease-in-out 0s;
   &.submenu__list__active {
     min-height: 0px;
     height: auto;

@@ -74,9 +74,13 @@ const UserDetails = () => {
       <div className={styles.basic__info__container}>
         <div className={styles.basic__info}>
           <div className={styles.col__1}>
-            <img src={profile__avatar} alt="profile avatar" />
+            <img src={singleUser.profile.avatar} alt="profile avatar" />
             <div className={styles.content}>
-              <h4>Grace Effiom</h4>
+              <h4>
+                {singleUser.profile.firstName +
+                  " " +
+                  singleUser.profile.lastName}
+              </h4>
               <p>LSQFf587g90</p>
             </div>
           </div>

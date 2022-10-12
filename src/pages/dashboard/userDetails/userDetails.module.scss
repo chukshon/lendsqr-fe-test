@@ -73,6 +73,9 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  img {
+    border-radius: 50%;
+  }
   .content {
     display: flex;
     flex-direction: column;
