@@ -39,72 +39,67 @@ const UserTable = ({ userData }: Props) => {
 
   return (
     <>
-      <Paper>
-        <TableContainerStyled>
-          <TableStyled
-            sx={{ minWidth: 650 }}
-            aria-label="simple table"
-            className="table_styled"
-          >
-            <TableHeadStyled>
-              <TableHeadRowStyled className={"table_head_row"}>
-                {headers.map((item, index) => {
-                  return (
-                    <TableHeadCellStyled
-                      className={"table_head_cell"}
-                      key={index}
-                    >
-                      <span className={styles.header__grid}>
-                        <p>{item}</p>
-                        <TableFilter />
-                      </span>
-                    </TableHeadCellStyled>
-                  )
-                })}
-              </TableHeadRowStyled>
-            </TableHeadStyled>
-            <TableBody>
-              {userData
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row: any, index: any) => (
-                  <TableBodyRowStyled key={row.id}>
-                    {headers.map((item, index) => {
-                      return (
-                        <TableBodyCellStyled
-                          key={index}
-                          className="table_body_cell"
-                        >
-                          <div>{row[item]}</div>
-                        </TableBodyCellStyled>
-                      )
-                    })}
-                  </TableBodyRowStyled>
-                ))}
-            </TableBody>
-          </TableStyled>
-        </TableContainerStyled>
-        <div className={styles.table__footer}>
-          <div className={styles.left__col}>
-            <p>Showing</p>
-            <select
-              className={styles.select}
-              onChange={handleChangeRowsPerPage}
-            >
-              <option value={20}>20</option>
-              <option value={50}>50</option>
-              <option value={100}>{100}</option>
-            </select>
-            <p>out of {rowsPerPage}</p>
-          </div>
-          <div className={styles.right__col}>
-            <Pagination
-              page={page}
-              pageCount={Math.ceil(userData.length / rowsPerPage)}
-              handlePageClick={handlePageClick}
-            />
-          </div>
+      <TableContainerStyled>
+        <TableStyled
+          sx={{ minWidth: 650 }}
+          aria-label="simple table"
+          className="table_styled"
+        >
+          <TableHeadStyled>
+            <TableHeadRowStyled className={"table_head_row"}>
+              {headers.map((item, index) => {
+                return (
+                  <TableHeadCellStyled
+                    className={"table_head_cell"}
+                    key={index}
+                  >
+                    <span className={styles.header__grid}>
+                      <p>{item}</p>
+                      <TableFilter />
+                    </span>
+                  </TableHeadCellStyled>
+                )
+              })}
+            </TableHeadRowStyled>
+          </TableHeadStyled>
+          <TableBody>
+            {userData
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row: any, index: any) => (
+                <TableBodyRowStyled key={row.id}>
+                  {headers.map((item, index) => {
+                    return (
+                      <TableBodyCellStyled
+                        key={index}
+                        className="table_body_cell"
+                      >
+                        <div>{row[item]}</div>
+                      </TableBodyCellStyled>
+                    )
+                  })}
+                </TableBodyRowStyled>
+              ))}
+          </TableBody>
+        </TableStyled>
+      </TableContainerStyled>
+      <div className={styles.table__footer}>
+        <div className={styles.left__col}>
+          <p>Showing</p>
+          <select className={styles.select} onChange={handleChangeRowsPerPage}>
+            <option value={20}>20</option>
+            <option value={50}>50</option>
+            <option value={100}>{100}</option>
+          </select>
+          <p>out of {rowsPerPage}</p>
         </div>
-      </Paper>
+        <div className={styles.right__col}>
+          <Pagination
+            page={page}
+            pageCount={Math.ceil(userData.length / rowsPerPage)}
+            handlePageClick={handlePageClick}
+          />
+        </div>
+      </div>
     </>
   )
 }
