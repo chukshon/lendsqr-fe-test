@@ -3,7 +3,9 @@ import styles from "./navMenuDesktop.module.scss"
 import { menu } from "../../data/navMenuData"
 import DesktopNavLink from "../desktopNavLink/DesktopNavLink"
 import { NavLink } from "react-router-dom"
-import user_icon from "../../Assets/menu_icons/users.svg"
+import dashboard from "../../Assets/menu_icons/dashboard.svg"
+import switch_account from "../../Assets/menu_icons/switch_account.svg"
+
 import { FaAngleDown } from "react-icons/fa"
 
 const NavMenuDesktop = () => {
@@ -13,7 +15,7 @@ const NavMenuDesktop = () => {
         <div className={styles.nav__menu__wrapper}>
           <div className={styles.nav__menu__container}>
             <div className={styles.switch__nav}>
-              <img src={user_icon} alt="" />
+              <img src={switch_account} alt="" />
               <span>Switch Organization</span>
               <FaAngleDown />
             </div>
@@ -24,7 +26,7 @@ const NavMenuDesktop = () => {
               }
             >
               <div></div>
-              <img src={user_icon} alt="" />
+              <img src={dashboard} alt="" />
               <span>Dashboard</span>
             </NavLink>
             {menu.map((item, index) => {
