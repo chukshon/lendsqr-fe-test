@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom"
 type Props = {
   id: number
 }
-
 const TablePills = ({ id }: Props) => {
   const navigate = useNavigate()
   const [filterOpen, setFilterOpen] = React.useState<boolean>(false)
