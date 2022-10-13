@@ -4,8 +4,10 @@ import lendqr_logo from "../../Assets/logo.svg"
 import login_image from "../../Assets/login_image.svg"
 import InputField from "../../components/input/InputField"
 import Button from "../../components/button/Button"
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
+  const navigate = useNavigate()
   const loginFormInitialState = {
     email: "",
     password: "",
@@ -18,6 +20,7 @@ const Login = () => {
     e.preventDefault()
     console.log(loginFormData)
     setLoginFormData(loginFormInitialState)
+    navigate("/")
   }
   const handleChange = (
     e:
@@ -50,6 +53,7 @@ const Login = () => {
           </div>
           <form className={styles.login__form} onSubmit={handleSubmit}>
             <InputField
+              id="input_email"
               inputType="email"
               name="email"
               value={loginFormData.email}
@@ -57,6 +61,7 @@ const Login = () => {
               placeholder="Email"
             />
             <InputField
+              id="input_password"
               inputType="password"
               name="password"
               value={loginFormData.password}
@@ -66,7 +71,13 @@ const Login = () => {
             <button className={styles.forgot_password_btn}>
               FORGOT PASSWORD?
             </button>
-            <Button buttonType="default" buttonText="Login" />
+            <Button
+              id="login-button"
+              type="submit"
+              buttonType="default"
+              buttonText="Login"
+              disabled={!loginFormData.email || !loginFormData.password}
+            />
           </form>
         </div>
       </div>

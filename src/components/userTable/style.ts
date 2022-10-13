@@ -53,6 +53,7 @@ export const TableBodyCellStyled = styled(TableCell)`
   color: var(--grey);
   border-bottom: 1px solid;
   border-color: var(--border-color);
+  width: max-content;
   div {
     width: max-content;
     font-size: 14px;

@@ -6,11 +6,15 @@ type Props = {
   buttonText: string
   handleClick?: (se: React.SyntheticEvent) => void
   type?: "button" | "submit" | "reset"
+  disabled?: boolean
+  id?: string
 }
-const Button = ({ buttonText, buttonType, type }: Props) => {
+const Button = ({ buttonText, buttonType, type, disabled, id }: Props) => {
   return (
     <div className={styles.button__container}>
       <button
+        data-testid={id}
+        disabled={disabled}
         type={type ? type : "button"}
         className={classnames(styles.button, {
           [styles.default]: buttonType === "default",
