@@ -36,9 +36,9 @@ const Header = () => {
             size="26px"
           />
           <div className={styles.profile__container}>
-            <img src={avatar} alt="" />
+            <img src={avatar} alt="profile avatar" />
             <div className={styles.content}>
-              <p className="profile__name">Adedeji</p>
+              <p className={styles.profile__name}>Adedeji</p>
               <AiFillCaretDown />
             </div>
           </div>

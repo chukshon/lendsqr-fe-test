@@ -9,7 +9,6 @@ import {
   TableBodyCellStyled,
 } from "./style"
 import TableBody from "@mui/material/TableBody"
-
 import CircularProgress from "@mui/material/CircularProgress"
 import styles from "./usertable.module.scss"
 import Pagination from "../pagination/Pagination"

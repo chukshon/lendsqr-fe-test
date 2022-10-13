@@ -1,3 +1,4 @@
+import moment from "moment"
 import React, { useEffect } from "react"
 import TablePills from "../components/tablePills/TablePills"
 import { getAllUsersService } from "../services/getAllUsers"
@@ -32,7 +33,7 @@ function useGetAllUsers() {
             Username: user.userName,
             Email: user.email,
             "Phone Number": user.phoneNumber,
-            "Date Joined": user.createdAt,
+            "Date Joined": moment(user.createdAt).format("lll"),
             Status: <TablePills id={user.id} />,
           }
         })
@@ -47,7 +48,7 @@ function useGetAllUsers() {
           Username: user.userName,
           Email: user.email,
           "Phone Number": user.phoneNumber,
-          "Date Joined": user.createdAt,
+          "Date Joined": moment(user.createdAt).format("lll"),
           Status: <TablePills id={user.id} />,
         }
       })

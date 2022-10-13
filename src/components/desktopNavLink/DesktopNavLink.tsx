@@ -20,7 +20,7 @@ const DesktopNavLink = ({ title, subMenu }: MenuProps) => {
               }
             >
               <div></div>
-              <img src={item.icon} alt="" />
+              <img src={item.icon} alt="lendsqr sideNav icon" />
               <span>{item.title}</span>
             </NavLink>
           )

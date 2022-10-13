@@ -42,8 +42,8 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  background: #ffffff;
-  border: 1px solid rgba(84, 95, 125, 0.04);
+  background: var(--white);
+  border: 1px solid var(--border-color);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
   display: flex;
