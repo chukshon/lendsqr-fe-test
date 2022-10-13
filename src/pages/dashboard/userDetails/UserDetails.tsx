@@ -2,18 +2,24 @@ import React from "react"
 import styles from "./userDetails.module.scss"
 import { CgArrowLongLeft } from "react-icons/cg"
 import Button from "../../../components/button/Button"
-import profile__avatar from "../../../Assets/profile_avatar.svg"
 import filled__star from "../../../Assets/filled__star.svg"
 import unfilled__star from "../../../Assets/unfilled__star.svg"
 import InfoGroup from "../../../components/InfoGroup/InfoGroup"
 import { useNavigate, useParams } from "react-router-dom"
+import useGetAllUsers from "../../../hooks/useGetAllUsers"
 
 const UserDetails = () => {
+  const navigate = useNavigate()
+  const { states, allUsers } = useGetAllUsers()
   const { id } = useParams()
-  const users = JSON.parse(localStorage.getItem("users")!)
-  const singleUser = users.find((user: any) => {
+  const singleUser = allUsers.find((user: any) => {
     return user.id === id
   })
+
+  if (allUsers.length === 0) {
+    navigate("/users")
+  }
+
   const personalInfo = {
     "Full Name":
       singleUser.profile.firstName + " " + singleUser.profile.lastName,
@@ -49,73 +55,79 @@ const UserDetails = () => {
     "Email Address": singleUser.email,
     Relationship: "Sister",
   }
-
-  const navigate = useNavigate()
   return (
-    <div className={styles.wrapper}>
-      <button
-        className={styles.back__btn}
-        onClick={() => {
-          navigate("/users")
-        }}
-      >
-        <span className={styles.back__btn__icon}>
-          <CgArrowLongLeft size={"20px"} />
-        </span>
-        <span className={styles.back__btn__text}>Back to Users</span>
-      </button>
-      <div className={styles.top__container}>
-        <h3>User Details</h3>
-        <div className={styles.button__group}>
-          <Button buttonType={"red"} buttonText={"BLACKLIST USER"} />
-          <Button buttonType={"green"} buttonText={"ACTIVATE USER"} />
-        </div>
-      </div>
-      <div className={styles.basic__info__container}>
-        <div className={styles.basic__info}>
-          <div className={styles.col__1}>
-            <img src={singleUser.profile.avatar} alt="profile avatar" />
-            <div className={styles.content}>
-              <h4>
-                {singleUser.profile.firstName +
-                  " " +
-                  singleUser.profile.lastName}
-              </h4>
-              <p>LSQFf587g90</p>
+    <>
+      {states.loading && <h1>Loading..</h1>}
+      {!states.loading && allUsers && (
+        <div className={styles.wrapper}>
+          <button
+            className={styles.back__btn}
+            onClick={() => {
+              navigate("/users")
+            }}
+          >
+            <span className={styles.back__btn__icon}>
+              <CgArrowLongLeft size={"20px"} />
+            </span>
+            <span className={styles.back__btn__text}>Back to Users</span>
+          </button>
+          <div className={styles.top__container}>
+            <h3>User Details</h3>
+            <div className={styles.button__group}>
+              <Button buttonType={"red"} buttonText={"BLACKLIST USER"} />
+              <Button buttonType={"green"} buttonText={"ACTIVATE USER"} />
             </div>
           </div>
-          <div className={styles.col__2}>
-            <p>User Tier</p>
-            <div className={styles.star__group}>
-              <img src={filled__star} alt="" />
-              <img src={unfilled__star} alt="" />
-              <img src={unfilled__star} alt="" />
+          <div className={styles.basic__info__container}>
+            <div className={styles.basic__info}>
+              <div className={styles.col__1}>
+                <img src={singleUser.profile.avatar} alt="profile avatar" />
+                <div className={styles.content}>
+                  <h4>
+                    {singleUser.profile.firstName +
+                      " " +
+                      singleUser.profile.lastName}
+                  </h4>
+                  <p>LSQFf587g90</p>
+                </div>
+              </div>
+              <div className={styles.col__2}>
+                <p>User Tier</p>
+                <div className={styles.star__group}>
+                  <img src={filled__star} alt="" />
+                  <img src={unfilled__star} alt="" />
+                  <img src={unfilled__star} alt="" />
+                </div>
+              </div>
+              <div className={styles.col__3}>
+                <h4>₦200,000.00</h4>
+                <p>9912345678/Providus Bank</p>
+              </div>
             </div>
+            <ul className={styles.basic__info__tabs}>
+              <li>General Details</li>
+              <li>Documents</li>
+              <li>Bank Details</li>
+              <li>Loans</li>
+              <li>Savings</li>
+              <li>App and System</li>
+            </ul>
           </div>
-          <div className={styles.col__3}>
-            <h4>₦200,000.00</h4>
-            <p>9912345678/Providus Bank</p>
+          <div className={styles.full__info__container}>
+            <InfoGroup data={personalInfo} title="Personal Information" />
+            <InfoGroup
+              data={education_employment}
+              title="Education and Employment"
+            />
+            <InfoGroup data={socials} title="Socials" />
+            <InfoGroup data={guarantor} title="Guarantor" />
           </div>
         </div>
-        <ul className={styles.basic__info__tabs}>
-          <li>General Details</li>
-          <li>Documents</li>
-          <li>Bank Details</li>
-          <li>Loans</li>
-          <li>Savings</li>
-          <li>App and System</li>
-        </ul>
-      </div>
-      <div className={styles.full__info__container}>
-        <InfoGroup data={personalInfo} title="Personal Information" />
-        <InfoGroup
-          data={education_employment}
-          title="Education and Employment"
-        />
-        <InfoGroup data={socials} title="Socials" />
-        <InfoGroup data={guarantor} title="Guarantor" />
-      </div>
-    </div>
+      )}
+      {!states.loading && !states.error && allUsers.length === 0 && (
+        <h1>Oops</h1>
+      )}
+    </>
   )
 }
 

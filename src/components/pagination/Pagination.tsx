@@ -5,17 +5,11 @@ import { BiChevronLeft, BiChevronRight } from "react-icons/bi"
 
 type Props = {
   page: number
-  rowsPerPage?: number
   pageCount: number
   handlePageClick?: any
 }
 
-const Pagination = ({
-  page,
-  rowsPerPage,
-  pageCount,
-  handlePageClick,
-}: Props) => {
+const Pagination = ({ page, pageCount, handlePageClick }: Props) => {
   return (
     <ReactPaginate
       breakLabel="..."
