@@ -1,13 +1,19 @@
 import React from "react"
-import users_icon from "../../Assets/users_icon.svg"
 import styles from "./usercard.module.scss"
 
-const Usercard = () => {
+type Props = {
+  stat: {
+    title: string
+    count: number
+    icon: string
+  }
+}
+const Usercard = ({ stat }: Props) => {
   return (
     <div className={styles.wrapper}>
-      <img src={users_icon} alt="all users" />
-      <p>Users</p>
-      <h3>2,453</h3>
+      <img src={stat.icon} alt="all users" />
+      <p>{stat.title}</p>
+      <h3>{stat.count.toLocaleString()}</h3>
     </div>
   )
 }
