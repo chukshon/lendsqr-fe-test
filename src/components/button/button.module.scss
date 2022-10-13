@@ -1,0 +1,39 @@
+.button__container {
+  width: 100%;
+}
+.button {
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 100%;
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.default {
+  background: var(--dark-lemon);
+  color: var(--white);
+}
+
+.red__btn,
+.green__btn,
+.grey__btn {
+  border: 1px solid;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.red__btn {
+  border-color: var(--dark-red);
+  color: var(--dark-red);
+}
+
+.green__btn {
+  border-color: var(--dark-lemon);
+  color: var(--dark-lemon);
+}
+.grey__btn {
+  border-color: var(--grey);
+  color: var(--grey);
+}

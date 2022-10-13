@@ -1,6 +1,11 @@
+label {
+  color: var(--grey);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
 .input_style,
 .password_input {
-  border: 2px solid;
+  border: 1px solid;
   border-color: var(--border-color);
   outline: none;
   border-radius: 5px;
@@ -13,7 +18,7 @@
   }
   &:focus {
     outline: none;
-    border: none;
+    border-color: var(--border-color);
   }
 }
 
@@ -29,11 +34,29 @@
     }
     &:focus {
       outline: none;
-      border: none;
+      border-color: var(--border-color);
     }
   }
   span {
     color: var(--dark-lemon);
     cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+}
+
+.select {
+  width: 100%;
+  background-color: var(--white);
+  outline: none;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px 0px 10px 10px;
+  margin-top: -10px;
+  cursor: pointer;
+  color: var(--grey);
+  option {
+    padding: 0px 20px;
   }
 }

@@ -12,12 +12,18 @@ $screen-ph-min: 480px;
 $screen-xl-min: 1200px;
 
 @mixin tablet {
-  @media (max-width: #{$screen-md-min}) {
+  @media (min-width: #{$screen-md-min}) {
     @content;
   }
 }
 @mixin phone {
-  @media (max-width: #{$screen-ph-min}) {
+  @media (min-width: #{$screen-ph-min}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: #{$screen-xl-min}) {
     @content;
   }
 }
