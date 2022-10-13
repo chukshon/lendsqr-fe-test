@@ -14,9 +14,10 @@ import CircularProgress from "@mui/material/CircularProgress"
 import styles from "./usertable.module.scss"
 import Pagination from "../pagination/Pagination"
 import TableFilter from "../tableFilter/TableFilter"
+import { TableDataT } from "../../types/index"
 
 type Props = {
-  userData?: any
+  userData?: TableDataT[]
   loading: boolean
   success?: boolean
   error?: boolean
@@ -24,7 +25,7 @@ type Props = {
 const UserTable = ({ userData, loading, error, success }: Props) => {
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(20)
-  const handleChangeRowsPerPage = (e: any) => {
+  const handleChangeRowsPerPage = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setRowsPerPage(+e.target.value)
     setPage(0)
   }
@@ -46,10 +47,10 @@ const UserTable = ({ userData, loading, error, success }: Props) => {
       {!loading && error && (
         <h2 className={styles.usertable__container}>Something went wrong...</h2>
       )}
-      {!loading && !error && userData.length === 0 && (
+      {!loading && !error && userData?.length === 0 && (
         <h2 className={styles.usertable__container}>No users were found now</h2>
       )}
-      {!loading && !error && userData.length > 0 && (
+      {!loading && !error && userData!.length > 0 && (
         <>
           <TableContainerStyled>
             <TableStyled
@@ -111,7 +112,7 @@ const UserTable = ({ userData, loading, error, success }: Props) => {
             <div className={styles.right__col}>
               <Pagination
                 page={page}
-                pageCount={Math.ceil(userData.length / rowsPerPage)}
+                pageCount={Math.ceil(userData!.length / rowsPerPage)}
                 handlePageClick={handlePageClick}
               />
             </div>

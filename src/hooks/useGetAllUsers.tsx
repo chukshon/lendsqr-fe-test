@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import TablePills from "../components/tablePills/TablePills"
 import { getAllUsersService } from "../services/getAllUsers"
+import { UserDataT } from "../types/index"
 
 function useGetAllUsers() {
   const initialStates = {
@@ -24,7 +25,7 @@ function useGetAllUsers() {
         const response = await getAllUsersService()
         setStates({ ...states, loading: false, success: true })
         localStorage.setItem("users", JSON.stringify(response))
-        const tempUsers = response.map((user: any) => {
+        const tempUsers = response.map((user: UserDataT) => {
           return {
             id: user.id,
             Organization: user.orgName,
@@ -39,7 +40,7 @@ function useGetAllUsers() {
         setAllUsers(response)
         return
       }
-      const tempUsers = localStorageUsers.map((user: any) => {
+      const tempUsers = localStorageUsers.map((user: UserDataT) => {
         return {
           id: user.id,
           Organization: user.orgName,
