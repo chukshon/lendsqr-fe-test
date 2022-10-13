@@ -6,7 +6,11 @@ type Props = {
   placeholder?: string
   name?: string
   value?: string
-  handleChange?: (se: React.SyntheticEvent) => void
+  handleChange?: (
+    se:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => void
   label?: string
   options?: string[]
 }

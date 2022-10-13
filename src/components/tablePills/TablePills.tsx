@@ -8,7 +8,7 @@ import { BsEye } from "react-icons/bs"
 import { useNavigate } from "react-router-dom"
 
 type Props = {
-  id: number
+  id: string
 }
 const TablePills = ({ id }: Props) => {
   const navigate = useNavigate()
@@ -16,7 +16,7 @@ const TablePills = ({ id }: Props) => {
   const handleClickAway = () => {
     setFilterOpen(false)
   }
-  const handleFilterOpen = (e: any) => {
+  const handleFilterOpen = () => {
     setFilterOpen(!filterOpen)
   }
   return (
