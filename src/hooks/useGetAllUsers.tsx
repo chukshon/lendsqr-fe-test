@@ -3,6 +3,7 @@ import React, { useEffect } from "react"
 import TablePills from "../components/tablePills/TablePills"
 import { getAllUsersService } from "../services/getAllUsers"
 import { UserDataT } from "../types/index"
+import { capitalizeWord } from "../utils"
 
 function useGetAllUsers() {
   const initialStates = {
@@ -29,8 +30,8 @@ function useGetAllUsers() {
         const tempUsers = response.map((user: UserDataT) => {
           return {
             id: user.id,
-            Organization: user.orgName,
-            Username: user.userName,
+            Organization: capitalizeWord(user.orgName),
+            Username: capitalizeWord(user.userName),
             Email: user.email,
             "Phone Number": user.phoneNumber,
             "Date Joined": moment(user.createdAt).format("lll"),
@@ -44,8 +45,8 @@ function useGetAllUsers() {
       const tempUsers = localStorageUsers.map((user: UserDataT) => {
         return {
           id: user.id,
-          Organization: user.orgName,
-          Username: user.userName,
+          Organization: capitalizeWord(user.orgName),
+          Username: capitalizeWord(user.userName),
           Email: user.email,
           "Phone Number": user.phoneNumber,
           "Date Joined": moment(user.createdAt).format("lll"),
