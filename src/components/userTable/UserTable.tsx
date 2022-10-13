@@ -14,7 +14,6 @@ import styles from "./usertable.module.scss"
 import Pagination from "../pagination/Pagination"
 import TableFilter from "../tableFilter/TableFilter"
 import { TableDataT } from "../../types/index"
-import moment from "moment"
 
 type Props = {
   userData?: TableDataT[]

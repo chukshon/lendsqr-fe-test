@@ -11,7 +11,7 @@ type Props = {
 const Usercard = ({ stat }: Props) => {
   return (
     <div className={styles.wrapper}>
-      <img src={stat.icon} alt="all users" />
+      <img src={stat.icon} alt="lendsqr user count icon" />
       <p>{stat.title}</p>
       <h3>{stat.count.toLocaleString()}</h3>
     </div>
