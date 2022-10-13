@@ -8,14 +8,10 @@ import { styled } from "@mui/material"
 
 export const TableContainerStyled = styled(TableContainer)`
   max-height: 500px;
-  max-width: 100%;
   height: 100%;
   width: 100%;
   overflow-y: auto;
-
-  /* &::-webkit-scrollbar {
-    width: 0;
-  } */
+  overflow-x: auto;
 `
 
 export const TableStyled = styled(Table)`
@@ -38,34 +34,34 @@ export const TableHeadRowStyled = styled(TableRow)`
 
 export const TableHeadCellStyled = styled(TableCell)`
   text-align: left;
-  color: #545f7d;
+  color: var(--grey);
+  font-weight: 800;
   font-size: 15px;
-  width: max-content;
   p {
     width: max-content;
+    font-weight: 800;
   }
   border: none;
 `
 
 export const TableBodyStyled = styled(TableBody)`
-  background: white;
+  background: var(--white); ;
 `
 
 export const TableBodyCellStyled = styled(TableCell)`
   text-align: left;
-  color: #545f7d;
-  border-bottom: 1px solid rgba(33, 63, 125, 0.1);
-  width: max-content;
-  p {
-    width: max-content;
-  }
+  color: var(--grey);
+  border-bottom: 1px solid;
+  border-color: var(--border-color);
   div {
     width: max-content;
+    font-size: 14px;
+    font-weight: 400;
   }
-  background: white;
+
+  background: var(--white);
 `
 export const TableBodyRowStyled = styled(TableRow)`
-  background: white 100%;
-  width: max-content;
-  color: grey;
+  background: var(--white) 100%;
+  color: var(--grey);
 `
