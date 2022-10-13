@@ -34,6 +34,7 @@
       opacity: 1;
       color: var(--dark-red);
       z-index: -1;
+      width: max-content;
     }
   }
 }
@@ -57,10 +58,10 @@
     align-items: center;
     gap: 1rem;
     cursor: pointer;
+    width: max-content;
   }
 }
-
-.action__icon {
+a .action__icon {
   cursor: pointer;
   z-index: 10;
 }

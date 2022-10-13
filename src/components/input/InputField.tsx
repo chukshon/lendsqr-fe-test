@@ -13,6 +13,7 @@ type Props = {
   ) => void
   label?: string
   options?: string[]
+  id?: string
 }
 
 const InputField = ({
@@ -23,6 +24,7 @@ const InputField = ({
   handleChange,
   label,
   options,
+  id,
 }: Props) => {
   const [showPassword, setShowPassword] = React.useState(false)
   const handleTogglePasswordVisibility = () => {
@@ -34,6 +36,7 @@ const InputField = ({
         <div className={styles.input__container}>
           {label && <label>{label}</label>}
           <input
+            data-testid={id}
             type={inputType}
             name={name}
             className={styles.input_style}
@@ -46,6 +49,7 @@ const InputField = ({
       {inputType === "password" && (
         <div className={styles.password_input}>
           <input
+            data-testid={id}
             type={showPassword ? "text" : "password"}
             name={name}
             placeholder={placeholder}
@@ -61,6 +65,7 @@ const InputField = ({
         <>
           {label && <label>{label}</label>}
           <select
+            data-testid={id}
             className={styles.select}
             value={value}
             onChange={handleChange}
