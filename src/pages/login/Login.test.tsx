@@ -20,7 +20,6 @@ test("checks if the login button is disabled", () => {
     </Router>
   )
   const linkElement = screen.getByTestId("login-button")
-  // const placeholderElement = screen.getByText(/)
   expect(linkElement).toBeInTheDocument()
   expect(linkElement).toBeDisabled()
 })
