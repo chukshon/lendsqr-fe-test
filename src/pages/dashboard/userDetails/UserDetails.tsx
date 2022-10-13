@@ -2,11 +2,10 @@ import React from "react"
 import styles from "./userDetails.module.scss"
 import { CgArrowLongLeft } from "react-icons/cg"
 import Button from "../../../components/button/Button"
-import profile__avatar from "../../../Assets/profile_avatar.svg"
 import filled__star from "../../../Assets/filled__star.svg"
 import unfilled__star from "../../../Assets/unfilled__star.svg"
 import InfoGroup from "../../../components/InfoGroup/InfoGroup"
-import { redirect, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import useGetAllUsers from "../../../hooks/useGetAllUsers"
 
 const UserDetails = () => {

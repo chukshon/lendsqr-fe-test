@@ -1,9 +1,6 @@
 import React, { useEffect } from "react"
 import TablePills from "../components/tablePills/TablePills"
-import Usercard from "../components/userCard/Usercard"
-import UserTable from "../components/userTable/UserTable"
 import { getAllUsersService } from "../services/getAllUsers"
-import styles from "./users.module.scss"
 
 function useGetAllUsers() {
   const initialStates = {
@@ -61,6 +58,7 @@ function useGetAllUsers() {
   }
   useEffect(() => {
     getAllUsers()
+    // eslint-disable-next-line
   }, [])
 
   return {

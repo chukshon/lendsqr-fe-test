@@ -1,13 +1,11 @@
-import React, { useEffect } from "react"
-import TablePills from "../../../components/tablePills/TablePills"
+import React from "react"
 import Usercard from "../../../components/userCard/Usercard"
 import UserTable from "../../../components/userTable/UserTable"
 import useGetAllUsers from "../../../hooks/useGetAllUsers"
-import { getAllUsersService } from "../../../services/getAllUsers"
 import styles from "./users.module.scss"
 
 const Users = () => {
-  const { states, allUsers, tableData } = useGetAllUsers()
+  const { states, tableData } = useGetAllUsers()
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
